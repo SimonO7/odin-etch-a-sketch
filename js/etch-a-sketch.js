@@ -1,3 +1,5 @@
+const gridSizeValue = document.getElementById("gridSizeValue")
+
 function createGrid(numOfSquares) {
     const gridContainer = document.querySelector(".grid-container");
     const borderSize = 1;
@@ -30,7 +32,25 @@ function addColor(event) {
     event.target.style.backgroundColor = "black";
 }
 
-createGrid(16);
+function clearGrid() {
+    const rowDivs = document.querySelectorAll(".row-div");
+    rowDivs.forEach(rowDiv => rowDiv.remove());
+}
+
+function updateGrid(event) {
+    clearGrid();
+    createGrid(event.target.value);
+    gridSizeValue.textContent = event.target.value;
+}
+
+function main() {
+    const gridSize = document.querySelector("#gridSize");
+    gridSize.addEventListener("input", updateGrid);
+    gridSizeValue.textContent = gridSize.value;
+    createGrid(gridSize.value);
+}
+
+main();
 
 
 
