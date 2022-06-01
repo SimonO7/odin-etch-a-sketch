@@ -10,10 +10,6 @@
     display: flex;
 }
 
-.grid-square {
-    border: 1px solid rgb(197, 196, 196);
-}
-
 .grid-square:hover {
     background-color: black;
 }
