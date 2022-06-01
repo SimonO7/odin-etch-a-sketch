@@ -1,4 +1,4 @@
-const gridSizeValue = document.getElementById("gridSizeValue")
+const gridSizeValue = document.querySelector("#grid-size-value")
 
 function createGrid(numOfSquares) {
     /**Create a grid with specified number of squares, inside the grid container.
@@ -66,8 +66,8 @@ function main() {
      * @param   None
      * @returns None
      */
-    const gridSize = document.querySelector("#gridSize");
-    const clearGridBtn = document.querySelector("#clearGridBtn");
+    const gridSize = document.querySelector("#grid-size");
+    const clearGridBtn = document.querySelector("#clear-grid-btn");
     gridSize.addEventListener("input", (event) => updateGrid(event.target.value));
     clearGridBtn.addEventListener("click", () => updateGrid(gridSize.value));
     gridSizeValue.textContent = gridSize.value;

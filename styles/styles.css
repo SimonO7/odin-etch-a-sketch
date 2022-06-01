@@ -11,6 +11,10 @@ h1 {
     color: red;
 }
 
+.grid-size-display {
+    display: flex;
+}
+
 .main-container {
     display: flex;
     justify-content: center;
@@ -30,6 +34,15 @@ h1 {
     display: flex;
 }
 
-.grid-square:hover {
-    background-color: black;
+#clear-grid-btn {
+    background-color: rgb(32, 153, 201);
+    color: white;
+    border-radius: 5px;
+    width: 100px;
+    height: 40px;
+}
+
+#clear-grid-btn:hover {
+    background-color: yellow;
+    color: black;
 }
