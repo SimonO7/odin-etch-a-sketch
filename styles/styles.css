@@ -1,3 +1,7 @@
+.main-container {
+    display: flex;
+}
+
 .grid-container {
     display: flex;
     flex-wrap: wrap;
