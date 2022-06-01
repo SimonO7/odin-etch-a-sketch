@@ -20,7 +20,7 @@ function createGrid(numOfSquares) {
             gridSquare.classList.add("grid-square");
             gridSquare.style.height = `${squareHeight}px`
             gridSquare.style.width = `${squareWidth}px`
-            gridSquare.style.border = `${borderSize}px solid rgb(197, 196, 196)`;
+            gridSquare.style.border = `${borderSize}px solid rgb(196, 196, 196)`;
             rowDiv.appendChild(gridSquare);
         }
 
