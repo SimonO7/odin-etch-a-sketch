@@ -17,9 +17,10 @@ function createGrid(numOfSquares) {
         //Create the squares and put into row div
         for (let rowSquare = 0; rowSquare < numOfSquares; rowSquare++) {
             const gridSquare = document.createElement("div");
-            gridSquare.classList.add('grid-square');
+            gridSquare.classList.add("grid-square");
             gridSquare.style.height = `${squareHeight}px`
             gridSquare.style.width = `${squareWidth}px`
+            gridSquare.style.border = `${borderSize}px solid rgb(197, 196, 196)`;
             rowDiv.appendChild(gridSquare);
         }
 
@@ -49,14 +50,14 @@ function clearGrid() {
     rowDivs.forEach(rowDiv => rowDiv.remove());
 }
 
-function updateGrid(event) {
+function updateGrid(gridSize) {
     /**Update the current grid when the grid size value is changed.
-     * @param   event   Event object, the input event.
+     * @param   gridSize   Number, the number of squares to make the grid.
      * @returns None
      */
     clearGrid();
-    createGrid(event.target.value);
-    gridSizeValue.textContent = event.target.value;
+    createGrid(gridSize);
+    gridSizeValue.textContent = gridSize;
 }
 
 function main() {
@@ -66,7 +67,9 @@ function main() {
      * @returns None
      */
     const gridSize = document.querySelector("#gridSize");
-    gridSize.addEventListener("input", updateGrid);
+    const clearGridBtn = document.querySelector("#clearGridBtn");
+    gridSize.addEventListener("input", (event) => updateGrid(event.target.value));
+    clearGridBtn.addEventListener("click", () => updateGrid(gridSize.value));
     gridSizeValue.textContent = gridSize.value;
     createGrid(gridSize.value);
 }
