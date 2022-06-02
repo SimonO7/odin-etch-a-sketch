@@ -1,4 +1,5 @@
 const gridSizeValue = document.querySelector("#grid-size-value")
+let color = "#000000"
 
 function createGrid(numOfSquares) {
     /**Create a grid with specified number of squares, inside the grid container.
@@ -38,7 +39,7 @@ function addColor(event) {
      * @param   event   event object, the mouseEnter event object
      * @returns None
      */
-    event.target.style.backgroundColor = "black";
+    event.target.style.backgroundColor = color;
 }
 
 function clearGrid() {
@@ -68,8 +69,10 @@ function main() {
      */
     const gridSize = document.querySelector("#grid-size");
     const clearGridBtn = document.querySelector("#clear-grid-btn");
+    const colorPicker = document.querySelector("#color-picker");
     gridSize.addEventListener("input", (event) => updateGrid(event.target.value));
     clearGridBtn.addEventListener("click", () => updateGrid(gridSize.value));
+    colorPicker.addEventListener("input", (event) => color = event.target.value);
     gridSizeValue.textContent = gridSize.value;
     createGrid(gridSize.value);
 }
