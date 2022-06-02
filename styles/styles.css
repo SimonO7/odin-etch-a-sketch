@@ -88,3 +88,9 @@ h1 {
     background-color: yellow;
     color: black;
 }
+
+#color-picker {
+    width: 100px;
+    height: 40px;
+    margin-top: 5px;
+}
