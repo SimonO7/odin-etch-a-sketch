@@ -1,5 +1,7 @@
 const gridSizeValue = document.querySelector("#grid-size-value")
 let color = "#000000"
+let linesVisible = true;
+const borderSize = 1;
 
 function createGrid(numOfSquares) {
     /**Create a grid with specified number of squares, inside the grid container.
@@ -7,9 +9,8 @@ function createGrid(numOfSquares) {
      * @returns None
      */
     const gridContainer = document.querySelector(".grid-container");
-    const borderSize = 1;
-    const squareWidth = (gridContainer.clientWidth/numOfSquares)-(2*borderSize);    //(total canvas wiidth/number of squares needed) - (sum of left and right borders)
-    const squareHeight = (gridContainer.clientHeight/numOfSquares)-(2*borderSize);
+    const squareWidth = (gridContainer.clientWidth/numOfSquares);    //(total canvas wiidth/number of squares needed)
+    const squareHeight = (gridContainer.clientHeight/numOfSquares);
     for(let row = 0; row < numOfSquares; row++) {
         //Create a row div
         let rowDiv = document.createElement('div');
@@ -21,17 +22,16 @@ function createGrid(numOfSquares) {
             gridSquare.classList.add("grid-square");
             gridSquare.style.height = `${squareHeight}px`
             gridSquare.style.width = `${squareWidth}px`
-            gridSquare.style.border = `${borderSize}px solid rgb(196, 196, 196)`;
+            if (linesVisible === true) {
+                gridSquare.style.border = `${borderSize}px solid rgb(196, 196, 196)`;
+            }
+            gridSquare.addEventListener("mouseenter", addColor);
             rowDiv.appendChild(gridSquare);
         }
 
         //Put the row into the container
         gridContainer.appendChild(rowDiv);
     }
-    
-    //Add listeners to the squares
-    const gridSquares = document.querySelectorAll(".grid-square");
-    gridSquares.forEach((square) => square.addEventListener("mouseenter", addColor));
 }
 
 function addColor(event) {
@@ -70,11 +70,25 @@ function main() {
     const gridSize = document.querySelector("#grid-size");
     const clearGridBtn = document.querySelector("#clear-grid-btn");
     const colorPicker = document.querySelector("#color-picker");
+    const toggleGridBtn = document.querySelector("#toggle-grid-lines");
     gridSize.addEventListener("input", (event) => updateGrid(event.target.value));
     clearGridBtn.addEventListener("click", () => updateGrid(gridSize.value));
+    toggleGridBtn.addEventListener("click", toggleLines);
     colorPicker.addEventListener("input", (event) => color = event.target.value);
     gridSizeValue.textContent = gridSize.value;
     createGrid(gridSize.value);
+}
+
+function toggleLines() {
+    const squares = document.querySelectorAll(".grid-square");
+    if (linesVisible) {
+        squares.forEach((sq) => sq.style.border = "none");
+        linesVisible = false;
+    }
+    else {
+        squares.forEach((sq) => sq.style.border = `${borderSize}px solid rgb(196, 196, 196)`);
+        linesVisible = true;
+    }
 }
 
 main();

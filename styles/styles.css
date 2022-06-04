@@ -75,16 +75,17 @@ h1 {
     display: flex;
 }
 
-#clear-grid-btn {
+button {
     background-color: #3071a9;
     color: white;
     border-radius: 5px;
-    width: 100px;
+    width: auto;
     height: 40px;
     margin: 20px 0px;
+    padding: 10px;
 }
 
-#clear-grid-btn:hover {
+button:hover {
     background-color: yellow;
     color: black;
 }
@@ -93,4 +94,8 @@ h1 {
     width: 100px;
     height: 40px;
     margin-top: 5px;
+}
+
+.grid-square {
+    box-sizing: border-box;
 }
