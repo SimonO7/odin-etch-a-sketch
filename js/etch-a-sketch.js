@@ -1,7 +1,6 @@
 const gridSizeValue = document.querySelector("#grid-size-value")
 let color = "#000000"
 let linesVisible = true;
-const borderSize = 1;
 
 function createGrid(numOfSquares) {
     /**Create a grid with specified number of squares, inside the grid container.
@@ -23,7 +22,7 @@ function createGrid(numOfSquares) {
             gridSquare.style.height = `${squareHeight}px`
             gridSquare.style.width = `${squareWidth}px`
             if (linesVisible === true) {
-                gridSquare.style.border = `${borderSize}px solid rgb(196, 196, 196)`;
+                gridSquare.classList.add("grid-border");
             }
             gridSquare.addEventListener("mouseenter", addColor);
             rowDiv.appendChild(gridSquare);
@@ -68,11 +67,11 @@ function toggleGridLines() {
     */
     const squares = document.querySelectorAll(".grid-square");
     if (linesVisible) {
-        squares.forEach((sq) => sq.style.border = "none");
+        squares.forEach((square) => square.classList.remove("grid-border"));
         linesVisible = false;
     }
     else {
-        squares.forEach((sq) => sq.style.border = `${borderSize}px solid rgb(196, 196, 196)`);
+        squares.forEach((square) => square.classList.add("grid-border"));
         linesVisible = true;
     }
 }
