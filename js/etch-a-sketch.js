@@ -25,16 +25,13 @@ function createGrid(numOfSquares) {
             if (linesVisible === true) {
                 gridSquare.style.border = `${borderSize}px solid rgb(196, 196, 196)`;
             }
+            gridSquare.addEventListener("mouseenter", addColor);
             rowDiv.appendChild(gridSquare);
         }
 
         //Put the row into the container
         gridContainer.appendChild(rowDiv);
     }
-    
-    //Add listeners to the squares
-    const gridSquares = document.querySelectorAll(".grid-square");
-    gridSquares.forEach((square) => square.addEventListener("mouseenter", addColor));
 }
 
 function addColor(event) {
