@@ -61,25 +61,11 @@ function updateGrid(gridSize) {
     gridSizeValue.textContent = gridSize;
 }
 
-function main() {
-    /**Main function to run at page load. Add event listener to the gridSize slider and create the grid with
-     * default 16 x 16 size.
+function toggleGridLines() {
+    /**Toggle the visibility of the grid lines
      * @param   None
      * @returns None
-     */
-    const gridSize = document.querySelector("#grid-size");
-    const clearGridBtn = document.querySelector("#clear-grid-btn");
-    const colorPicker = document.querySelector("#color-picker");
-    const toggleGridBtn = document.querySelector("#toggle-grid-lines");
-    gridSize.addEventListener("input", (event) => updateGrid(event.target.value));
-    clearGridBtn.addEventListener("click", () => updateGrid(gridSize.value));
-    toggleGridBtn.addEventListener("click", toggleLines);
-    colorPicker.addEventListener("input", (event) => color = event.target.value);
-    gridSizeValue.textContent = gridSize.value;
-    createGrid(gridSize.value);
-}
-
-function toggleLines() {
+    */
     const squares = document.querySelectorAll(".grid-square");
     if (linesVisible) {
         squares.forEach((sq) => sq.style.border = "none");
@@ -90,6 +76,25 @@ function toggleLines() {
         linesVisible = true;
     }
 }
+
+function main() {
+    /**Main function to run at page load. Add event listener to the buttons and create the grid with
+     * default 16 x 16 size.
+     * @param   None
+     * @returns None
+     */
+    const gridSize = document.querySelector("#grid-size");
+    const clearGridBtn = document.querySelector("#clear-grid-btn");
+    const colorPicker = document.querySelector("#color-picker");
+    const toggleGridBtn = document.querySelector("#toggle-grid-lines");
+    gridSize.addEventListener("input", (event) => updateGrid(event.target.value));
+    clearGridBtn.addEventListener("click", () => updateGrid(gridSize.value));
+    toggleGridBtn.addEventListener("click", toggleGridLines);
+    colorPicker.addEventListener("input", (event) => color = event.target.value);
+    gridSizeValue.textContent = gridSize.value;
+    createGrid(gridSize.value);
+}
+
 
 main();
 
