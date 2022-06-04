@@ -22,7 +22,9 @@ function createGrid(numOfSquares) {
             gridSquare.classList.add("grid-square");
             gridSquare.style.height = `${squareHeight}px`
             gridSquare.style.width = `${squareWidth}px`
-            gridSquare.style.border = `${borderSize}px solid rgb(196, 196, 196)`;
+            if (linesVisible === true) {
+                gridSquare.style.border = `${borderSize}px solid rgb(196, 196, 196)`;
+            }
             rowDiv.appendChild(gridSquare);
         }
 
@@ -83,7 +85,7 @@ function main() {
 function toggleLines() {
     const squares = document.querySelectorAll(".grid-square");
     if (linesVisible) {
-        squares.forEach((sq) => sq.style.border = "0px solid rgb(196, 196, 196)");
+        squares.forEach((sq) => sq.style.border = "none");
         linesVisible = false;
     }
     else {
