@@ -9,8 +9,8 @@ function createGrid(numOfSquares) {
      * @returns None
      */
     const gridContainer = document.querySelector(".grid-container");
-    const squareWidth = (gridContainer.clientWidth/numOfSquares);    //(total canvas wiidth/number of squares needed)
-    const squareHeight = (gridContainer.clientHeight/numOfSquares);
+    const squareWidth = (600/numOfSquares);    //(total canvas wiidth/number of squares needed)
+    const squareHeight = (600/numOfSquares);
     for(let row = 0; row < numOfSquares; row++) {
         //Create a row div
         let rowDiv = document.createElement('div');
