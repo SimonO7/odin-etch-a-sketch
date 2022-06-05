@@ -126,7 +126,7 @@ function main() {
     clearGridBtn.addEventListener("click", () => updateGrid(gridSize.value));
     toggleGridBtn.addEventListener("click", toggleGridLines);
     randomColorModeBtn.addEventListener("click", toggleRandomColor);
-    colorPicker.addEventListener("input", (event) => color = event.target.value);
+    colorPicker.addEventListener("input", (event) => penColor = event.target.value);
 
     gridSizeValue.textContent = gridSize.value;
     createGrid(gridSize.value);
