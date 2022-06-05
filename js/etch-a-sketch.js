@@ -1,4 +1,6 @@
 const gridSizeValue = document.querySelector("#grid-size-value")
+const CANVAS_WIDTH = 600;
+const CANVAS_HEIGHT = 600;
 let color = "#000000"
 let randomColorMode = false;
 let linesVisible = true;
@@ -9,8 +11,8 @@ function createGrid(numOfSquares) {
      * @returns None
      */
     const gridContainer = document.querySelector(".grid-container");
-    const squareWidth = (600/numOfSquares);    //(total canvas wiidth/number of squares needed)
-    const squareHeight = (600/numOfSquares);
+    const squareWidth = (CANVAS_WIDTH/numOfSquares);    //(total canvas wiidth/number of squares needed)
+    const squareHeight = (CANVAS_HEIGHT/numOfSquares);
     for(let row = 0; row < numOfSquares; row++) {
         //Create a row div
         let rowDiv = document.createElement('div');
