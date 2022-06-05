@@ -1,10 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Parisienne&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Play&display=swap');
 
 body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Play', sans-serif;
     background-color: rgb(168, 168, 168);
     height: 100vh;
     margin: 0px;
@@ -66,6 +68,7 @@ h1 {
     cursor: pointer;
     box-shadow: 1px 1px 1px #000000
 }
+
 button {
     background-color: #3071a9;
     color: white;
@@ -115,6 +118,9 @@ button:hover,
 }
 
 .footer {
+    font-family: 'Indie Flower', cursive;
+    font-size: 20px;
     text-align: center;
     margin-top: auto;
+    padding-bottom: 10px;
 }
