@@ -1,7 +1,7 @@
 const gridSizeValue = document.querySelector("#grid-size-value")
 const CANVAS_WIDTH = 600;
 const CANVAS_HEIGHT = 600;
-let color = "#000000"
+let penColor = "#000000"
 let randomColorMode = false;
 let linesVisible = true;
 
@@ -45,7 +45,7 @@ function addColor(event) {
         event.target.style.backgroundColor = randomColor();
     }
     else {
-        event.target.style.backgroundColor = color;
+        event.target.style.backgroundColor = penColor;
     }
 }
 
